@@ -1,0 +1,126 @@
+body {
+    --color-primary: #009579;
+    --color-primar-dark: #007862;
+    --color-secondary: #243fa9;
+    --color-error: rgb(217, 8, 8);
+    --color-sucess: rgb(14, 201, 52);
+
+    margin: 0;
+    height: 100vh;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+
+}
+
+.pageTitle {
+    font-family: sans-serif;
+    position: absolute;
+    top: 15%
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 400px;
+    max-width: 400px;
+    margin: 1rem;
+    padding: 2rem 1rem;
+    box-shadow: 0 0 48px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    scale: 1.2;
+}
+
+.container, .form-input, .form-button {
+    font: 500 1rem sans-serif;
+}
+
+.form > *:first-child {
+    margin: 0;
+}
+.form > *:last-child {
+    margin: 1rem;
+}
+
+.form-message {
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.form-message-success {
+    color: var(--color-sucess)
+}
+
+.form-message-error {
+    color: var(--color-error)
+    
+}
+
+.form-input-group {
+    margin-bottom: 1rem ;
+}
+
+.form-input {
+    display: block;
+    width: 100%;
+    padding: 0.7rem;
+    box-sizing: border-box;
+    border-radius: 8px; 
+    background: #eeeeee;
+    transition: background 0.2s, border-color 0.2;
+    outline: none;
+    border: 1.5px solid white
+}
+
+.form-input:focus {
+    border-color: var(--color-primary);
+}
+
+.form-input-error {
+    color: var(--color-error);
+    border-color: var(--color-error);
+}
+
+.form-input-error-message {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-error)
+}
+
+.form-button {
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    background: var(--color-primary);
+    padding: 1rem;
+}
+
+.form-button:hover {
+    background: var(--color-primar-dark)
+}
+
+.form-link {
+    color: var(--color-secondary);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-link:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
+
