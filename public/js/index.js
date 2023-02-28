@@ -14,8 +14,10 @@ function setInputError(inputElement, message) {
 }
 
 function clearInputError(inputElement) {
-    inputElement.classList.remove("form-input-error");
-    inputElement.parentElement.querySelector(".form-input-error-message").textContent = "";
+  inputElement.classList.remove("form-input-error");
+  inputElement.parentElement.querySelector(
+    ".form-input-error-message"
+  ).textContent = "";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -48,23 +50,42 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".form-input").forEach((inputElement) => {
     inputElement.addEventListener("blur", (e) => {
       if (
-        (e.target.id === "signupUsername" && e.target.value.length < 5) ||
-        e.target.value.length > 15
+        (e.target.id === "signupUsername" &&
+          (e.target.value.length < 5 || e.target.value.length > 15)) ||
+        (e.target.id === "signupEmail" && !isValidEmail(e.target.value)) ||
+        (e.target.id === "signupPassword" && e.target.value.length < 8) ||
+        (e.target.id === "signupConfirmPassword" &&
+          e.target.value !== document.querySelector("#signupPassword").value)
       ) {
-        setInputError(
-          inputElement,
-          "Username must be between 5 - 15 Characters in legth."
-        );
+        if (e.target.id === "signupUsername") {
+          setInputError(
+            inputElement,
+            "Username must be between 5 - 15 characters in length."
+          );
+        } else if (e.target.id === "signupEmail") {
+          setInputError(inputElement, "Please enter a valid email address.");
+        } else if (e.target.id === "signupPassword") {
+          setInputError(
+            inputElement,
+            "Password must be at least 8 characters in length."
+          );
+        } else {
+          setInputError(inputElement, "Passwords do not match.");
+        }
         submitButton.disabled = true;
       } else {
         submitButton.disabled = false;
       }
 
-      inputElement.addEventListener("input", e => {
+      inputElement.addEventListener("input", (e) => {
         clearInputError(inputElement);
+      });
     });
-    });
-
-    
   });
+
+  function isValidEmail(email) {
+    // Regular expression to match email format
+    const emailRegex = /\S+@\S+\.\S+/;
+    return emailRegex.test(email);
+  }
 });
