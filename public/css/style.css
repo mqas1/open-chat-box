@@ -19,7 +19,11 @@ body {
 .pageTitle {
     font-family: sans-serif;
     position: absolute;
-    top: 15%
+    top: 15%;
+}
+
+.pageTitle > h1 {
+    text-shadow: 1px 1px 2px var(--color-primary);
 }
 
 .container {
