@@ -1,22 +1,22 @@
 [
   {
-    "user_name": "hi",
-    "password": "3131asdasdasASDSA",
-    "email": "asdasd@gmail.com"
+    "user_name": "John Wick",
+    "password": "wickjonh19!2",
+    "email": "johnwick@gmail.com"
   },
   {
-    "user_name": "hello",
-    "password": "3131asdasdasASDSA",
-    "email": "gdfgfgdfgfd@gmail.com"
+    "user_name": "Ed Sheeran",
+    "password": "Ed1sh33ran",
+    "email": "Sheeran.contact@gmail.com"
   },
   {
-    "user_name": "bye",
-    "password": "3131asdasdasASDSA",
-    "email": "13231dq@gmail.com"
+    "user_name": "Post Malone",
+    "password": "mal0neita",
+    "email": "Malone10@gmail.com"
   },
   {
-    "user_name": "nice",
-    "password": "3131asdasdasASDSA",
-    "email": "465465asdasdsa@gmail.com"
+    "user_name": "Kevin Durant",
+    "password": "KevinDur4nt",
+    "email": "KevinDur4nt@gmail.com"
   }
 ]

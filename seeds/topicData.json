@@ -1,18 +1,14 @@
 [
   {
-    "topic_name": "London",
-    "user_id": 2
+    "topic_name": "NBA",
+    "user_id": 4
   },
   {
-    "topic_name": "test3",
-    "user_id": 3
-  },
-  {
-    "topic_name": "dasdsa",
-    "user_id": 2
-  },
-  {
-    "topic_name": "czxcz",
+    "topic_name": "Baba Yaga",
     "user_id": 1
+  },
+  {
+    "topic_name": "Best Singer",
+    "user_id": 2
   }
 ]
