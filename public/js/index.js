@@ -40,10 +40,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
+  
+    const username = document.querySelector('#userLogin').value.trim();
+    const password = document.querySelector('#userPassword').value.trim();
+  
+    // perform Fetch API login
+    console.log("user_name:", username);
+    console.log("password:", password);
+    
 
-    //Peform Fetch api Login
-
-    setFormMessage(loginForm, "error", "Invalid Username or Password");
+    fetch('/api/users/login', {
+      method: "POST",
+      body: JSON.stringify({
+        user_name: username,
+        password: password
+      }),
+      headers: {
+        "Content-type": "application/json"
+      }
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          setFormMessage(loginForm, "success", "Login successful");
+          window.location.href = '../../views/main.html'
+        } else {
+          setFormMessage(loginForm, "error", "Invalid username or password");
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+        setFormMessage(loginForm, "error", "Error logging in");
+      });
   });
 
   const submitButton = document.querySelector("#submit-button");
