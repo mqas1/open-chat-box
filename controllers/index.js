@@ -7,6 +7,9 @@ router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/index.html"));
 });
 
+router.get("/main", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/main.html"));
+});
 
 router.use('/api', apiRoutes);
 

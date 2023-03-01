@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((data) => {
         if (data.success) {
           setFormMessage(loginForm, "success", "Login successful");
-          window.location.href = '../../views/main.html'
+          window.location.replace("/main")
         } else {
           setFormMessage(loginForm, "error", "Invalid username or password");
         }
