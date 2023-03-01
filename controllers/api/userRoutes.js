@@ -9,6 +9,7 @@ router.get("/", async (req, res) => {
   try {
     const userData = await User.findAll({
       include: [{ model: Topic }, { model: Message }],
+      attributes: { exclude: ['password'] }
     });
     res.status(200).json(userData);
   } catch (err) {
@@ -33,7 +34,7 @@ router.post("/login", async (req, res) => {
     }
 
 
-    
+
     // Check if password matches
     const isMatch = await bcrypt.compare(req.body.password, userData.password);
     console.log(`password match is ${isMatch}`)
@@ -55,6 +56,7 @@ router.get("/:id", async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id, {
       include: [{ model: Topic }, { model: Message }],
+      attributes: { exclude: ['password'] }
     });
 
     if (!userData) {
