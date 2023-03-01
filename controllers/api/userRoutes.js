@@ -7,7 +7,8 @@ router.get('/', async (req, res) => {
   // find all users
   try {
     const userData = await User.findAll({
-      include: [{ model: Topic }, { model: Message }]
+      include: [{ model: Topic }, { model: Message }],
+      attributes: { exclude: ['password'] }
     });
     res.status(200).json(userData);
   } catch (err) {
@@ -19,7 +20,8 @@ router.get('/:id', async (req, res) => {
   // find one user by their `id` value
   try {
     const userData = await User.findByPk(req.params.id, {
-      include: [{ model: Topic }, { model: Message }]
+      include: [{ model: Topic }, { model: Message }],
+      attributes: { exclude: ['password'] }
     });
 
     if (!userData) {

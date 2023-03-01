@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
   // find all topics
   try {
     const topicData = await Topic.findAll({
-      include: [{ model: User }, { model: Message }]
+      include: [{ model: User, attributes: { exclude: ['password'] }}, { model: Message }],
     });
     res.status(200).json(topicData);
   } catch (err) {
@@ -19,7 +19,7 @@ router.get('/:id', async (req, res) => {
   // find one topic by its `id` value
   try {
     const topicData = await Topic.findByPk(req.params.id, {
-      include: [{ model: User }, { model: Message }]
+      include: [{ model: User, attributes: { exclude: ['password'] } }, { model: Message }]
     });
 
     if (!topicData) {
