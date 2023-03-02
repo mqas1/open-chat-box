@@ -53,6 +53,11 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     io.emit("message", "User has left the chat");
   });
+  // Listen for chatMessages
+  socket.on('chatMessage', (msg) => {
+    console.log(msg);
+    io.emit('message', msg);
+  });
 });
 
 // turn on connection to db and server
