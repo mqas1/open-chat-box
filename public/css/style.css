@@ -4,7 +4,7 @@ body {
     --color-secondary: #243fa9;
     --color-error: rgb(217, 8, 8);
     --color-sucess: rgb(14, 201, 52);
-
+    overflow: hidden;
     margin: 0;
     height: 100vh;
     font-size: 20px;
@@ -133,8 +133,23 @@ body {
 
 /* main page */
 
+.logout-button {
+    font-size: 1.3rem;
+    margin: 1em 1em 0em 1.5em;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 7px;
+    background-color: rgb(231, 230, 230);
+}
+
+.logout-button:hover {
+    transform: scale(1.1);
+    transition: transform 30ms ease;
+    background-color: var(--color-primary);
+}
 .mainTitle {
-    height: 15%;
+    height: 11%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -142,6 +157,7 @@ body {
 
 .mainTitle > h1 {
     margin: 0;
+    text-shadow: 1px 1px 2px var(--color-primary);
 
 }
 
@@ -156,8 +172,8 @@ body {
 
 .topicContainer {
     
-    border-style: solid;
-    border-color: red;
+    border-right: solid;
+    border-color: var(--color-primar-dark);
     width: 30%;
     height: 100%;
 }
@@ -184,8 +200,6 @@ body {
 }
 
 .chatContainer {
-    border-style: solid;
-    border-color: yellow;
     width: 70%;
     height: 100%;
     display: flex;
