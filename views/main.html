@@ -17,17 +17,14 @@
     <div class="mainContainer">
       <div class="topicContainer">
         <div class="topicButton">
-          <button>Add Topics</button>
+          <button class="show" id="add-topic">Create New Topic</button>
         </div>
         <div class="topicList">
-          <ul>
-            <li>topic 1</li>
-            <li>topic 2</li>
-            <li>topic 3</li>
-            <li>topic 4</li>
-            <li>topic 5</li>
-            <li>topic 6</li>
-          </ul>
+          <div class="showInput hide">
+            <input id="newTopicInput" type= "text" required placeholder="New topic title...">
+            <button id="submitTopic">Submit NEW Topic</button>
+          </div>
+          <ul id="topic-list"></ul>
         </div>
       </div>
       <div class="chatContainer">
@@ -69,6 +66,7 @@
       </div>
     </div>
   </body>
+  <script src="/js/topics.js"></script>
   <script src="/js/main.js"></script>
   <script src="/js/logout.js"></script>
 </html>
