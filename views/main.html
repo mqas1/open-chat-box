@@ -31,42 +31,18 @@
         <div class="chat-message-container">
           <div class="chat-message-wrapper">
             <div class="messageContainer">
-              <h2>User1</h2>
-              <p>Hello. How are you today?</p>
-              <span class="timeStamp">11:00</span>
+            <form id="chat-form">
+                <input id="msg" type="text" class="form-control type_msg" placeholder="Type your message here..."
+                    required autocomplete="off" />
+                <button class="btn btn-main"> Send</button>
+            </form>
             </div>
-
-            <div class="messageContainerRight">
-              <h2>User2</h2>
-              <p>Hey! I'm fine. Thanks for asking!</p>
-              <span class="timeStamp">11:05</span>
-            </div>
-
-            <div class="messageContainer">
-              <h2>User1</h2>
-              <p>What do you want for dinner?</p>
-              <span class="timeStamp">11:07</span>
-            </div>
-
-            <div class="messageContainerRight">
-              <h2>User2</h2>
-              <p>Im craving some pizza</p>
-              <span class="timeStamp">11:10</span>
-            </div>
-          </div>
-        </div>
-        <div class="message-input-container">
-          <input
-            class="message-input"
-            type="text"
-            autofocus
-            placeholder="Type a new message"
-          />
-        </div>
       </div>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
   </body>
   <script src="/js/topics.js"></script>
   <script src="/js/main.js"></script>
+  <script src="/js/chat.js"></script>
   <script src="/js/logout.js"></script>
 </html>
