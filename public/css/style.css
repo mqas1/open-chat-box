@@ -8,6 +8,7 @@ body {
     margin: 0;
     height: 100vh;
     font-size: 20px;
+    font-family:sans-serif
 }
 
 /* login page */
@@ -131,4 +132,90 @@ body {
 
 
 /* main page */
+
+.mainTitle {
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainTitle > h1 {
+    margin: 0;
+
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    
+}
+
+.topicContainer {
+    
+    border-style: solid;
+    border-color: red;
+    width: 30%;
+    height: 100%;
+}
+
+.topicButton {
+    display: flex;
+    justify-content: center;
+}
+
+.topicList {
+    display: flex;
+    justify-content: center;
+    padding-right: 2rem;
+    height: 97%;
+}
+
+.topicList > ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+
+.chatContainer {
+    border-style: solid;
+    border-color: yellow;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    background-color: rgba(255, 255, 255, 0.901);
+}
+
+.messageContainer > h2 , .messageContainerRight > h2{
+    font-size: 20px;
+    margin: 0;
+}
+
+.messageContainer {
+    background-color: white;
+}
+
+.messageContainerRight {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    background-color: rgb(214, 213, 213);
+}
+
+.message-input-container {
+    display: flex;
+    justify-content: center;
+}
+
+.message-input {
+    margin: 0.8rem;
+}
+
 
