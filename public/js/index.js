@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("user_name:", username);
     console.log("password:", password);
     
-
     fetch('/api/users/login', {
       method: "POST",
       body: JSON.stringify({
@@ -63,14 +62,47 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((data) => {
         if (data.success) {
           setFormMessage(loginForm, "success", "Login successful");
-          window.location.replace("/main")
+          window.location.replace("/main");
         } else {
           setFormMessage(loginForm, "error", "Invalid username or password");
         }
       })
       .catch((err) => {
-        console.log(err)
+        console.log(err);
         setFormMessage(loginForm, "error", "Error logging in");
+      });
+  });
+
+  createAccountForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const newUsername = document.querySelector("#signupUsername").value.trim();
+    const newUserEmail = document.querySelector("#signupEmail").value.trim();
+    const newUserPwd = document.querySelector("#signupConfirmPassword").value.trim();
+
+    fetch('/api/users', {
+      method: "POST",
+      body: JSON.stringify({
+        user_name: newUsername,
+        email: newUserEmail,
+        password: newUserPwd
+      }),
+      headers: {
+        "Content-type": "application/json"
+      }
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          setFormMessage(createAccountForm, "success", "New user successfully created");
+          window.location.replace("/main");
+        } else {
+          setFormMessage(createAccountForm, "error", "Unsuccessful in creating a new user account.");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setFormMessage(createAccountForm, "error", "Error creating new user account");
       });
   });
 

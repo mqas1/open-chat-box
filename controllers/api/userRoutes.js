@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const { User, Topic, Message } = require("../../models");
-const bcrypt = require("bcrypt");
 
 // The `/api/users` endpoint
 
@@ -24,7 +23,6 @@ router.post("/login", async (req, res) => {
         user_name: req.body.user_name,
       },
     });
-    console.log(userData)
 
     if (!userData) {
       res
@@ -33,19 +31,24 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-
-
     // Check if password matches
-    const isMatch = await bcrypt.compare(req.body.password, userData.password);
-    console.log(`password match is ${isMatch}`)
+    const isMatch = await userData.checkPassword(req.body.password);
+    console.log(`password match is ${isMatch}`);
 
     if (!isMatch) {
       return res
         .status(400)
-        .json({ success: false, message: "Invalid password" });
+        .json({ success: false, message: "Incorrect email or password, please try again" });
     }
 
-    res.status(200).json({ success: true, message: "Login successful", user_name: userData.user_name});
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res
+        .status(200)
+        .json({ success: true, user: userData, message: 'Login successful' });
+    });
   } catch (err) {
     res.status(400).json(err);
   }
@@ -81,7 +84,15 @@ router.post("/", async (req, res) => {
   */
   try {
     const newUser = await User.create(req.body);
-    res.status(200).json(newUser);
+
+    req.session.save(() => {
+      req.session.user_id = newUser.id;
+      req.session.logged_in = true;
+
+      res
+        .status(200)
+        .json({ success: true, user: newUser, message: "new user successfully created" });
+    });
   } catch (err) {
     res.status(400).json(err);
   }
