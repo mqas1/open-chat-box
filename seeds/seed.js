@@ -1,28 +1,24 @@
 const sequelize = require('../config/connection');
 const { User, Topic, Message } = require('../models');
 
-const x = require('./userData.json');
-const y = require('./topicData.json');
-const z = require('./messageData.json');
-
-
-
-
+const userData = require('./userData.json');
+const topicData = require('./topicData.json');
+const messageData = require('./messageData.json');
 
 const seedAll = async () => {
     await sequelize.sync({ force: true });
 
-    const seedUser = await User.bulkCreate(x, {
+    const seedUser = await User.bulkCreate(userData, {
       individualHooks: true,
       returning: true,
     });
     
-    const seedTopic = await Topic.bulkCreate(y, {
+    const seedTopic = await Topic.bulkCreate(topicData, {
       individualHooks: true,
       returning: true,
     });
 
-    const seedMessage = await Message.bulkCreate(z, {
+    const seedMessage = await Message.bulkCreate(messageData, {
       individualHooks: true,
       returning: true,
     });
@@ -30,6 +26,4 @@ const seedAll = async () => {
     process.exit(0);
   };
 
-
-  
-  seedAll();
+seedAll();
