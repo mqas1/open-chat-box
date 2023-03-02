@@ -242,4 +242,24 @@ body {
     margin: 0.8rem;
 }
 
+li button {
+    float: right;
+    border: none;
+    height: 40px;
+    cursor: pointer;
+    background-color: #ff7034;
+    color: white;
+    font-size: 1em;
+  }
 
+  .flex {
+    display: flex;
+  }
+
+  .hide {
+    visibility: hidden;
+  }
+
+  .show {
+    visibility: visible;
+  }
