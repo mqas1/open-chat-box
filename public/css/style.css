@@ -8,18 +8,19 @@ body {
     margin: 0;
     height: 100vh;
     font-size: 20px;
+}
+
+/* login page */
+.bodyContainer {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
-
+    height: 80vh;
 }
 
 .pageTitle {
     font-family: sans-serif;
-    position: fixed;
-    top: 15%;
 }
 
 .pageTitle > h1 {
@@ -33,7 +34,7 @@ body {
     text-align: center;
     width: 400px;
     max-width: 400px;
-    margin: 1rem;
+    margin-top : 3rem;
     padding: 2rem 1rem;
     box-shadow: 0 0 48px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
@@ -127,4 +128,7 @@ body {
 .hidden {
     display: none;
 }
+
+
+/* main page */
 

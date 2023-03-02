@@ -30,7 +30,6 @@ router.post("/login", async (req, res) => {
         .json({ message: "Incorrect email or password, please try again" });
       return;
     }
-
     // Check if password matches
     const isMatch = await userData.checkPassword(req.body.password);
     console.log(`password match is ${isMatch}`);
