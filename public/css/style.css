@@ -165,13 +165,14 @@ body {
 .topicButton {
     display: flex;
     justify-content: center;
+    margin-top: 1rem;
 }
 
 .topicList {
     display: flex;
     justify-content: center;
     padding-right: 2rem;
-    height: 97%;
+    height: 93%;
 }
 
 .topicList > ul {
@@ -191,6 +192,15 @@ body {
     flex-direction: column;
     justify-content: end;
     background-color: rgba(255, 255, 255, 0.901);
+}
+
+.chat-message-container {
+    display: flex;
+    justify-content: center;
+}
+
+.chat-message-wrapper {
+    width: 70%;
 }
 
 .messageContainer > h2 , .messageContainerRight > h2{
