@@ -8,8 +8,11 @@
     <title>Open Chat Rooms</title>
   </head>
   <body>
+    <div class="logout-Button-Container"> 
+        <button class="logout-button">Logout</button>
+    </div>
     <div class="mainTitle">
-      <h1>Welcome to Chat Box</h1>
+      <h1>Welcome to Open Chat Box</h1>
     </div>
     <div class="mainContainer">
       <div class="topicContainer">
@@ -28,36 +31,44 @@
         </div>
       </div>
       <div class="chatContainer">
-        <div class="chat-message-wrapper">
-          <div class="messageContainer">
-            <h2>User1</h2>
-            <p>Hello. How are you today?</p>
-            <span class="timeStamp">11:00</span>
-          </div>
+        <div class="chat-message-container">
+          <div class="chat-message-wrapper">
+            <div class="messageContainer">
+              <h2>User1</h2>
+              <p>Hello. How are you today?</p>
+              <span class="timeStamp">11:00</span>
+            </div>
 
-          <div class="messageContainerRight">
-            <h2>User2</h2>
-            <p>Hey! I'm fine. Thanks for asking!</p>
-            <span class="timeStamp">11:05</span>
-          </div>
+            <div class="messageContainerRight">
+              <h2>User2</h2>
+              <p>Hey! I'm fine. Thanks for asking!</p>
+              <span class="timeStamp">11:05</span>
+            </div>
 
-          <div class="messageContainer">
-            <h2>User1</h2>
-            <p>What do you want for dinner?</p>
-            <span class="timeStamp">11:07</span>
-          </div>
+            <div class="messageContainer">
+              <h2>User1</h2>
+              <p>What do you want for dinner?</p>
+              <span class="timeStamp">11:07</span>
+            </div>
 
-          <div class="messageContainerRight">
-            <h2>User2</h2>
-            <p>Im craving some pizza</p>
-            <span class="timeStamp">11:10</span>
+            <div class="messageContainerRight">
+              <h2>User2</h2>
+              <p>Im craving some pizza</p>
+              <span class="timeStamp">11:10</span>
+            </div>
           </div>
         </div>
         <div class="message-input-container">
-          <input class="message-input" type="text" autofocus placeholder="Type a new message" />
+          <input
+            class="message-input"
+            type="text"
+            autofocus
+            placeholder="Type a new message"
+          />
         </div>
       </div>
     </div>
   </body>
   <script src="/js/main.js"></script>
+  <script src="/js/logout.js"></script>
 </html>
