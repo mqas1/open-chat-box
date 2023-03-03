@@ -27,18 +27,22 @@
           <ul id="topic-list"></ul>
         </div>
       </div>
-      <div class="chatContainer">
-        <div class="chat-message-container">
-          <div class="chat-message-wrapper">
-            <div class="chat-message"></div>
-            <div class="chat-form-container">
-              <form id="chat-form">
-                  <input id="msg" type="text" class="form-control type_msg" placeholder="Type your message here..."
-                      required autocomplete="off" />
-                  <button class="btn btn-main"> Send</button>
-              </form>
-            </div>
+    <div class="chat-wrapper">  
+      <div class="chat-messages">
       </div>
+      <div class="chat-form-container">
+          <form id="chat-form">
+            <input
+              id="msg"
+              type="text"
+              placeholder="Enter Message"
+              required
+              autocomplete="off"
+            />
+            <button class="btn"></i> Send</button>
+          </form>
+      </div>
+    </div>
     </div>
     <script src="/socket.io/socket.io.js"></script>
   </body>

@@ -198,49 +198,53 @@ body {
     justify-content: space-evenly;
 
 }
-
-.chatContainer {
+.chat-wrapper {
     width: 70%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
+}
+
+.chat-messages {
+    width: 85%;
+    height: 80%;
+    overflow-y:scroll;
+    margin-left: 1%;
     background-color: rgba(255, 255, 255, 0.901);
 }
 
-.chat-message-container {
+.chat-form-container {
+   text-align: left;
+   margin-left: 1%;
+}
+
+/* .chat-message-container {
     display: flex;
     justify-content: center;
-}
+} */
 
-.chat-message-wrapper {
-    width: 70%;
-}
-
-.messageContainer > h2 , .messageContainerRight > h2{
+/* .messageContainer > h2 , .messageContainerRight > h2{
     font-size: 20px;
     margin: 0;
-}
+} */
 
-.messageContainer {
+/* .messageContainer {
     background-color: white;
-}
+} */
 
-.messageContainerRight {
+/* .messageContainerRight {
     display: flex;
     flex-direction: column;
     align-items: end;
     background-color: rgb(214, 213, 213);
-}
+} */
 
-.message-input-container {
+/* .message-input-container {
     display: flex;
     justify-content: center;
-}
+} */
 
-.message-input {
+/* .message-input {
     margin: 0.8rem;
-}
+} */
 
 li button {
     float: right;
