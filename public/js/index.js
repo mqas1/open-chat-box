@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
     inputElement.addEventListener("blur", (e) => {
       if (
         (e.target.id === "signupUsername" &&
-          (e.target.value.length < 5 || e.target.value.length > 15)) ||
+          (e.target.value.length < 5 || e.target.value.length > 15 || invalidUserName(e.target.value))) ||
         (e.target.id === "signupEmail" && !isValidEmail(e.target.value)) ||
         (e.target.id === "signupPassword" && 
           (e.target.value.length < 8 || e.target.value.length > 20)) ||
@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.target.id === "signupUsername") {
           setInputError(
             inputElement,
-            "Username must be between 5 - 15 characters in length."
+            "Username must be between 5 - 15 characters in length without any spaces."
           );
         } else if (e.target.id === "signupEmail") {
           setInputError(inputElement, "Please enter a valid email address.");
@@ -183,5 +183,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // Regular expression to match email format
     const emailRegex = /\S+@\S+\.\S+/;
     return emailRegex.test(email);
+  }
+
+  function invalidUserName(userName) {
+  const userNameRegex = /[^\S]/g;
+    return userNameRegex.test(userName);
   }
 });
