@@ -15,15 +15,19 @@ chatForm.addEventListener("submit", (e) => {
   e.preventDefault();
   // Getting the text message
   const msg = e.target.elements.msg.value;
+
   // emit message to the server
   socket.emit("chatMessage", msg);
 
   // clear input form
-  e.target.elements.msg.value = " ";
+  e.target.elements.msg.value = "";
   e.target.elements.msg.focus();
 
-  // console.log(msg);
+  if (!msg) {
+    return false;
+  }
 });
+
 // output message to DOM
 function outputMessage(message) {
   const div = document.createElement("div");
@@ -31,6 +35,4 @@ function outputMessage(message) {
   div.innerHTML = `<p class="user-time">${message.userName} <span>${message.time}</span></p>
   <p class="text">${message.text}</p>`;
   document.querySelector(".chat-messages").appendChild(div);
-}
-{
 }

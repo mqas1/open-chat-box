@@ -54,14 +54,15 @@ io.on("connection", (socket) => {
     formatMessage(chat, "user has join the chat")
   );
 
-  // Runs when client disconnects
-  socket.on("disconnect", () => {
-    io.emit("message", formatMessage(chat, "User has left the chat"));
-  });
   // Listen for chatMessages of users
   socket.on("chatMessage", (msg) => {
     console.log(msg);
     io.emit("message", formatMessage("USER", msg));
+  });
+
+  // Runs when client disconnects
+  socket.on("disconnect", () => {
+    io.emit("message", formatMessage(chat, "User has left the chat"));
   });
 });
 
