@@ -99,7 +99,10 @@ const renderMessages = (message) => {
   chatMessages.appendChild(div);
 }
 
-topicList.addEventListener("click", topicsListHandler);
+topicList.addEventListener("click", function(event){
+  chatMessages.innerHTML = "";
+  topicsListHandler(event);
+});
 
 const init = () => {
   topicList.innerHTML = "";
