@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Topic, Message } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // The `/api/topics` endpoint
 
@@ -7,7 +8,7 @@ router.get('/', async (req, res) => {
   // find all topics
   try {
     const topicData = await Topic.findAll({
-      include: [{ model: User, attributes: { exclude: ['password'] }}, { model: Message }],
+      include: [{ model: User, attributes: { exclude: ['password'] }}, { model: Message }]
     });
     res.status(200).json(topicData);
   } catch (err) {
@@ -19,7 +20,7 @@ router.get('/:id', async (req, res) => {
   // find one topic by its `id` value
   try {
     const topicData = await Topic.findByPk(req.params.id, {
-      include: [{ model: User, attributes: { exclude: ['password'] } }, { model: Message }]
+      include: [{ model: User, attributes: { exclude: ['password'] }}, { model: Message }]
     });
 
     if (!topicData) {
@@ -33,7 +34,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   // create a new topic
   /* req.body should look like this...
     {
@@ -42,7 +43,10 @@ router.post('/', async (req, res) => {
     }
   */
   try {
-    const newTopic = await Topic.create(req.body);
+    const newTopic = await Topic.create({
+      ...req.body,
+      user_id: req.session.user_id
+    });
     res.status(200).json(newTopic);
   } catch (err) {
     res.status(400).json(err);

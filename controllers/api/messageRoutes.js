@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Topic, Message } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // The `/api/messages` endpoint
 
@@ -33,7 +34,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   // create a new message
   /* req.body should look like this...
     {
@@ -43,7 +44,10 @@ router.post('/', async (req, res) => {
     }
   */
   try {
-    const newMessage = await Message.create(req.body);
+    const newMessage = await Message.create({
+      ...req.body,
+      user_id: req.session.user_id
+    });
     res.status(200).json(newMessage);
   } catch (err) {
     res.status(400).json(err);

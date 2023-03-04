@@ -1,69 +1,69 @@
-var createTopicBtn = document.getElementById("add-topic");
-var topicList = document.querySelector("#topic-list");
-var createTopic = document.getElementById("submitTopic");
-var newTopicInput = document.getElementById("newTopicInput");
+const createTopicBtn = document.getElementById("add-topic");
+const topicList = document.querySelector("#topic-list");
+const createTopic = document.getElementById("submitTopic");
+const newTopicInput = document.getElementById("newTopicInput");
+const showBtn = document.querySelector(".showInput");
+// const socket = io();
 
+const getTopics = () => 
+  fetch("/api/topics", {
+    method: "GET"
+  })
+    .then((res) => res.json())
+    .then((data) => data);
 
-var topics = [];
+const renderTopic = (topic) => {
+  const liEl = document.createElement("li");
+  liEl.setAttribute("data-id", topic.id);
+  liEl.setAttribute("data-state", "inert");
+  liEl.innerHTML = topic.topic_name;
 
-function renderTopics() {
-    // Clear todoList element and update todoCountSpan
-    // topicList.innerHTML = "";
-  
-    // Render a new li for each todo
-    // for (var i = 0; i < topics.length; i++) {
-    //   var topic = topics[i];
-  
-      var li = document.createElement("li");
-      li.textContent = newTopicInput.value;
-    //   li.setAttribute("data-index", i);
-  
-    //   var button = document.createElement("button");
-    //   button.textContent = "Topic name";
-  
-    //   li.appendChild(button);
-      topicList.appendChild(li);
-    };
-  
-// _________________________________________________________________
-function newTopic() {
-
-      var li = document.createElement("input");
-      li.placeholder = "New topic name ..."
-
-      var button = document.createElement("button");
-      button.textContent = "Submit Topic";
-  
-      topicList.appendChild(li);
-      topicList.appendChild(button);
-
-    };
-// _________________________________________________________________
-
-var showBtn = document.querySelector(".showInput");
+  topicList.appendChild(liEl);
+}
 
 function showNewTopicBtn() {
-    showBtn.className = "show"
-  }
+  showBtn.className = "show"
+}
 
 function hideNewTopicBtn() {
-    showBtn.className = "hide"
-  }  
+  showBtn.className = "hide"
+}
 
-
-
-createTopicBtn.addEventListener("click", function(event) {
-    event.preventDefault();
-    showNewTopicBtn();
-    // renderLastGrade();
+const newTopic = async () => {
+  const topic_name = document.querySelector("#newTopicInput").value.trim();
+  if (topic_name) {
+    const response = await fetch("/api/topics", {
+      method: "POST",
+      body: JSON.stringify({
+        topic_name: topic_name
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
     });
 
+    if (response.ok) {
+      console.log(response);
+    } else {
+      console.log("Failed to create new topic");
+    }
+  }
+}
+
+createTopicBtn.addEventListener("click", function(event) {
+  event.preventDefault();
+  showNewTopicBtn();
+});
+
 createTopic.addEventListener("click", function(event) {
-    event.preventDefault();
-    renderTopics();
-    hideNewTopicBtn()
-    // renderLastGrade();
-    });    
+  event.preventDefault();
+  newTopic();
+  hideNewTopicBtn();
+});    
 
+const init = () => {
+  topicList.innerHTML = "";
+  getTopics().then((response) => response.forEach((item) => renderTopic(item)));
+};
     
-
+init();
