@@ -60,6 +60,10 @@ io.on("connection", (socket) => {
     io.emit("message", formatMessage("USER", msg));
   });
 
+  socket.on("chatTopic", (topic) => {
+    io.emit("topic", topic);
+  });
+
   // Runs when client disconnects
   socket.on("disconnect", () => {
     io.emit("message", formatMessage(chat, "User has left the chat"));
