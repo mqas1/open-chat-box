@@ -145,10 +145,10 @@ const compareDataState = (event) => {
     let state = x.dataset.state;
     if (topic === element) {
       if (state === "inert") {
-          element.dataset.state = "active";
-        }
+        element.dataset.state = "active";
+      }
     } else {
-          topic.dataset.state = "inert";
+        topic.dataset.state = "inert";
       }
   });
 }
