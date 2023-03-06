@@ -24,7 +24,7 @@ body {
     font-family: sans-serif;
 }
 
-.pageTitle > h1 {
+.pageTitle > h1, li {
     text-shadow: 1px 1px 2px var(--color-primary);
 }
 
@@ -72,7 +72,7 @@ body {
     margin-bottom: 1rem ;
 }
 
-.form-input {
+.form-input, #newTopicInput, #msg {
     display: block;
     width: 100%;
     padding: 0.7rem;
@@ -84,8 +84,14 @@ body {
     border: 1.5px solid white
 }
 
-.form-input:focus {
+.form-input:focus, #newTopicInput:focus, #msg:focus {
     border-color: var(--color-primary);
+}
+
+#msg {
+    width: 50%;
+    display: initial;
+    padding: 1rem;
 }
 
 .form-input-error {
@@ -133,17 +139,22 @@ body {
 
 /* main page */
 
-.logout-button {
+.logout-button, #add-topic, #submitTopic, .btn {
     font-size: 1.3rem;
     margin: 1em 1em 0em 1.5em;
-    border: none;
+    border: solid;
+    border-color: var(--color-primary);
     cursor: pointer;
     padding: 0.5rem;
     border-radius: 7px;
     background-color: rgb(231, 230, 230);
 }
 
-.logout-button:hover {
+.logout-button {
+    border: none;
+}
+
+.logout-button:hover, #add-topic:hover, #submitTopic:hover, .btn:hover {
     transform: scale(1.1);
     transition: transform 30ms ease;
     background-color: var(--color-primary);
@@ -184,20 +195,51 @@ body {
     margin-top: 1rem;
 }
 
-.topicList {
+.topic-list-container {
     display: flex;
-    justify-content: center;
-    padding-right: 2rem;
+    flex-direction: column;
     height: 93%;
 }
 
-.topicList > ul {
+.topic-list-container > ul {
     list-style-type: none;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
 
 }
+
+input {
+box-shadow: 0px 1px 2px grey;
+}
+
+#topic-list {
+    padding: 0;
+    height: 100%;
+}
+
+.topic-list-li {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.topic-list-li:hover {
+    scale: 1.1;
+}
+
+.input-Container {
+    display: flex;
+    justify-content: center;
+}
+
+#new-Input-Container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1.3rem;
+    gap: 1rem;
+}
+
 .chat-wrapper {
     width: 70%;
     height: 100%;
@@ -207,44 +249,16 @@ body {
     width: 85%;
     height: 80%;
     overflow-y:scroll;
-    margin-left: 1%;
+    margin-left: 11%;
     background-color: rgba(255, 255, 255, 0.901);
+    
 }
 
 .chat-form-container {
    text-align: left;
-   margin-left: 1%;
+   margin-left: 11%;
 }
 
-/* .chat-message-container {
-    display: flex;
-    justify-content: center;
-} */
-
-/* .messageContainer > h2 , .messageContainerRight > h2{
-    font-size: 20px;
-    margin: 0;
-} */
-
-/* .messageContainer {
-    background-color: white;
-} */
-
-/* .messageContainerRight {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    background-color: rgb(214, 213, 213);
-} */
-
-/* .message-input-container {
-    display: flex;
-    justify-content: center;
-} */
-
-/* .message-input {
-    margin: 0.8rem;
-} */
 
 li button {
     float: right;
@@ -256,6 +270,7 @@ li button {
     font-size: 1em;
   }
 
+
   .flex {
     display: flex;
   }
@@ -266,4 +281,31 @@ li button {
 
   .show {
     visibility: visible;
+  }
+
+  #submitTopic {
+    margin-top: 0;
+    scale: 0.9;
+  }
+
+  .topicList {
+    height: 100%;
+  }
+
+  p {
+    font-size: 26px;
+    margin-top: 0;
+
+  }
+  li {
+    font-size: 30px;
+  }
+
+  .user-time {
+    font-style: italic;
+    font-size: 20px;
+    background-color: var(--color-primary);
+    color: white;
+    max-width: 22rem;
+    margin-bottom: 5px;
   }
