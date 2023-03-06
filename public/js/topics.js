@@ -86,15 +86,14 @@ const socketsTopic = async () => {
   .catch((err) => console.log(err));
 }
 
-createTopicBtn.addEventListener("click", function(event) {
-  event.preventDefault();
-  showNewTopicBtn();
-});
+// createTopicBtn.addEventListener("click", function(event) {
+//   event.preventDefault();
+//   showNewTopicBtn();
+// });
 
 createTopic.addEventListener("click", function(event) {
   event.preventDefault();
   newTopic();
-  hideNewTopicBtn();
 });
 
 const topicsListHandler = (event) => {

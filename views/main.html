@@ -8,29 +8,34 @@
     <title>Open Chat Rooms</title>
   </head>
   <body>
-    <div class="logout-Button-Container"> 
-        <button class="logout-button">Logout</button>
+    <div class="logout-Button-Container">
+      <button class="logout-button">Logout</button>
     </div>
     <div class="mainTitle">
       <h1>Welcome to Open Chat Box</h1>
     </div>
     <div class="mainContainer">
       <div class="topicContainer">
-        <div class="topicButton">
-          <button class="show" id="add-topic">Create New Topic</button>
-        </div>
         <div class="topicList">
-          <div class="showInput hide">
-            <input id="newTopicInput" type= "text" required placeholder="New topic title...">
-            <button id="submitTopic">Submit NEW Topic</button>
+          <div class="input-Container">
+            <div class="showInput " id="new-Input-Container">
+              <input
+                id="newTopicInput"
+                type="text"
+                required
+                placeholder="New topic title..."
+              />
+              <button id="submitTopic">Submit NEW Topic</button>
+            </div>
           </div>
-          <ul id="topic-list"></ul>
+          <div class="topic-list-container">
+            <ul id="topic-list"></ul>
+          </div>
         </div>
       </div>
-    <div class="chat-wrapper">  
-      <div class="chat-messages">
-      </div>
-      <div class="chat-form-container">
+      <div class="chat-wrapper">
+        <div class="chat-messages"></div>
+        <div class="chat-form-container">
           <form id="chat-form">
             <input
               id="msg"
@@ -39,15 +44,17 @@
               required
               autocomplete="off"
             />
-            <button class="btn"></i> Send</button>
+            <button class="btn">Send</button>
           </form>
+        </div>
       </div>
     </div>
-    </div>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-            integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-            crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.3/plugin/advancedFormat.min.js"></script>
   </body>
   <script src="/js/topics.js"></script>
