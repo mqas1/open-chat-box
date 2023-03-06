@@ -5,7 +5,6 @@ const sequelize = require("./config/connection");
 const path = require("path");
 const http = require("http");
 const socketio = require("socket.io");
-const formatMessage = require("./utils/messages");
 
 require("dotenv").config();
 
@@ -41,23 +40,25 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 app.use(routes);
 
-const chat = "Open Chat Box";
+io.engine.use((session(sess)));
+
 // Run when client conencts
 io.on("connection", (socket) => {
+  const sessionId = socket.request.session.id;
+
+  socket.join(sessionId);
   console.log("new WS connection");
+  console.log(socket.request.session);
   // Welcome current user
-  socket.emit("message", formatMessage(chat, "Welcome to the chat"));
+  socket.emit("server", "Welcome to the chat");
 
   // Broadcast when a user connects
-  socket.broadcast.emit(
-    "message",
-    formatMessage(chat, "user has join the chat")
-  );
+  socket.broadcast.emit("server", `${socket.request.session.user_name} has joined the chat`);
 
   // Listen for chatMessages of users
   socket.on("chatMessage", (msg) => {
     console.log(msg);
-    io.emit("message", formatMessage("USER", msg));
+    io.emit("message", msg);
   });
 
   socket.on("chatTopic", (topic) => {
@@ -66,7 +67,7 @@ io.on("connection", (socket) => {
 
   // Runs when client disconnects
   socket.on("disconnect", () => {
-    io.emit("message", formatMessage(chat, "User has left the chat"));
+    io.emit("server", `${socket.request.session.user_name} has left the chat`);
   });
 });
 
