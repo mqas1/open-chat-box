@@ -85,6 +85,8 @@ createTopic.addEventListener("click", function(event) {
   event.preventDefault();
   resultArr.length = 0;
   newTopic();
+  newTopicInput.value = "";
+  newTopicInput.focus();
 });
 
 const topicsListHandler = (event) => {
@@ -153,8 +155,6 @@ topicList.addEventListener("click", function(event){
 
 const chatForm = document.getElementById("chat-form");
 const result = [];
-
-chatMessages.scrollTop = chatMessages.scrollHeight;
 
 const messageHandler = async () => {
   const content = document.querySelector("#msg").value.trim();
@@ -235,6 +235,7 @@ const socketsMessage = async () => {
   for (let i = 0; i < message.length; i++) {
     outputMessage(message[i]);
   }
+  chatMessages.scrollTop = chatMessages.scrollHeight;
 });
 
 // Message submit
@@ -247,6 +248,7 @@ chatForm.addEventListener("submit", (e) => {
 // clear input form
   e.target.elements.msg.value = "";
   e.target.elements.msg.focus();
+  setInterval(destroyHiddenMsg, 1000);
 });
 
 // output message to DOM
@@ -290,6 +292,18 @@ const openChatMsg = (content) => {
 }
 
 socket.on("server", (message) => openChatMsg(message));
+
+const destroyHiddenMsg = () => {
+  const messageEl = document.querySelectorAll(".chat-messages");
+  
+  const messageArr = Array.from(messageEl[0].children);
+  
+  const hiddenMessages = messageArr.filter((message) => {
+      return message.classList[1] === "hide"
+  });
+  
+  hiddenMessages.forEach((element) => element.remove());
+}
 
 const init = () => {
   topicList.innerHTML = "";

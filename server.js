@@ -16,7 +16,7 @@ const io = socketio(server);
 const PORT = process.env.PORT || 3001;
 
 const sess = {
-  secret: process.env.SESS_SECRET,
+  secret: process.env.SESS_SECRET || "Super secret secret",
   cookie: {
     maxAge: 1200000,
     httpOnly: true,
@@ -50,7 +50,7 @@ io.on("connection", (socket) => {
   console.log("new WS connection");
   console.log(socket.request.session);
   // Welcome current user
-  socket.emit("server", "Welcome to the chat");
+  socket.emit("server", `Welcome to Open Chat Box, ${socket.request.session.user_name}! Click on any topic to start chatting!`);
 
   // Broadcast when a user connects
   socket.broadcast.emit("server", `${socket.request.session.user_name} has joined the chat`);
@@ -62,6 +62,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("chatTopic", (topic) => {
+    console.log(topic);
     io.emit("topic", topic);
   });
 
