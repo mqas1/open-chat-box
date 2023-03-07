@@ -1,21 +1,21 @@
 [
   {
-    "user_name": "John Wick",
+    "user_name": "JohnWick",
     "password": "wickjonh19!2",
     "email": "johnwick@gmail.com"
   },
   {
-    "user_name": "Ed Sheeran",
+    "user_name": "Ed_Sheeran",
     "password": "Ed1sh33ran",
     "email": "Sheeran.contact@gmail.com"
   },
   {
-    "user_name": "Post Malone",
+    "user_name": "Post_Malone",
     "password": "mal0neita",
     "email": "Malone10@gmail.com"
   },
   {
-    "user_name": "Kevin Durant",
+    "user_name": "KevinDurant",
     "password": "KevinDur4nt",
     "email": "KevinDur4nt@gmail.com"
   }
