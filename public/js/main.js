@@ -267,7 +267,7 @@ const socketsMessage = async () => {
 /* "message" from server. Will only send back to the client if the user
   is on the same "topic" that the "message" belongs to
 */
- socket.on("message", (message) => {
+socket.on("message", (message) => {
   getTopicsDOM()
     .then(getActiveTopic)
     .then((resolved) => {
