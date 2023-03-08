@@ -1,11 +1,14 @@
 # **Open Chat Box**
 
+
 ##  **Description**
+
 The "Open Chat Box" is a web application that connects people. 
 Chat with people from all around the world.
 It let's the users to create new topics and engage on existing ones.
 
 ## **Demonstration**
+
 Index page, with a login feature.
 
 ![Printscreen of the web application](./public/images/OCB%20-%20Login%20page.jpg) 
@@ -34,6 +37,7 @@ Main chat room page showing the topics and messages.
   * Socket.io
   * Bcrypt
   * Mysql2
+  * emojionearea
 
 
 ## **Roadmap**
@@ -45,6 +49,7 @@ Sugestion for improvements to the web application:
 
 
 ## **Credits**
+
 List of collaborators (github)
 
 * *Lucas Araujo (https://github.com/muulinha)*
