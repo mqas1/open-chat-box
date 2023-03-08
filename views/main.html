@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/emojionearea.min.css">
     <title>Open Chat Rooms</title>
   </head>
   <body>
@@ -44,8 +46,9 @@
               required
               autocomplete="off"
             />
-            <button class="btn">Send</button>
+            <button class="btn">Send</button>        
           </form>
+          <textarea id="emoji"></textarea>
         </div>
       </div>
     </div>
@@ -57,6 +60,8 @@
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.3/plugin/advancedFormat.min.js"></script>
   </body>
+  <script type="text/javascript" src="/js/emojionearea.min.js"></script>
+  <script src="/js/emojis.js"></script>
   <script src="/js/main.js"></script>
   <script src="/js/logout.js"></script>
 </html>
