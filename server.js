@@ -40,7 +40,18 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 app.use(routes);
 
+// Integrates Sockets with Express Sessions
 io.engine.use((session(sess)));
+
+// Sockets will only emit to authenticated users.
+io.use((socket, next) => {
+  const session = socket.request.session;
+  if (session && session.logged_in) {
+    next();
+  } else {
+    next(new Error("unauthorized"));
+  }
+});
 
 // Run when client conencts
 io.on("connection", (socket) => {
