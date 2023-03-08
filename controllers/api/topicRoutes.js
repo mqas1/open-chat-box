@@ -4,8 +4,8 @@ const withAuth = require('../../utils/auth');
 
 // The `/api/topics` endpoint
 
-router.get('/', async (req, res) => {
-  // find all topics
+router.get('/', withAuth, async (req, res) => {
+  // find all topics only for authorised users
   try {
     const topicData = await Topic.findAll({
       include: [{ model: User, attributes: { exclude: ['password'] }}, { model: Message }]
@@ -35,7 +35,7 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', withAuth, async (req, res) => {
-  // create a new topic
+  // create a new topic only for authorised users
   /* req.body should look like this...
     {
       topic_name: "travel",

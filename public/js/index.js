@@ -73,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 
+  // Checks whether an email or username is in user before allowing a user to create a new account
   createAccountForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -114,6 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Once user data is validated against the database, the data is stored in the database as a new account
   const validNewUser = (userName, email, password) => {
     fetch('/api/users', {
       method: "POST",
@@ -140,7 +142,8 @@ document.addEventListener("DOMContentLoaded", () => {
       setFormMessage(createAccountForm, "error", "Error creating new user account");
     });
   }
- 
+  
+  // Validtions for user input in the signup form
   const submitButton = document.querySelector("#submit-button");
   document.querySelectorAll(".form-input").forEach((inputElement) => {
     inputElement.addEventListener("blur", (e) => {
@@ -185,6 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return emailRegex.test(email);
   }
 
+  // RegEx to make sure there are no spaces in a new username
   function invalidUserName(userName) {
   const userNameRegex = /[^\S]/g;
     return userNameRegex.test(userName);
