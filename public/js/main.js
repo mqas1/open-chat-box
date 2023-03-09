@@ -322,7 +322,7 @@ const init = () => {
       if (response.length !== undefined) {
         response.forEach((item) => renderTopic(item));
       } else {
-        console.log("Please log in to authenticate seession");
+        console.log("Please log in to authenticate session");
       } 
     });
 };
