@@ -23,7 +23,7 @@ const getTopics = () =>
         console.log("Please log in to authenticate session");
         return;
       } else {
-        return res.json()
+        return res.json();
       }
     })
     .then((data) => data);
@@ -329,7 +329,7 @@ const init = () => {
   topicList.innerHTML = "";
   getTopics().then((response) => {
     if (response) {
-      response.forEach((item) => renderTopic(item))
+      response.forEach((item) => renderTopic(item));
     } else {
       return;
     }
