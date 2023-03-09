@@ -13,20 +13,10 @@ dayjs.extend(window.dayjs_plugin_advancedFormat);
 const getTopics = () => 
   fetch("/api/topics", {
     method: "GET",
-    headers : { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-    },
   })
-    .then((res) => {
-      if (res.redirected = true) {
-        console.log("Please log in to authenticate session");
-        return;
-      } else {
-        return res.json();
-      }
-    })
-    .then((data) => data);
+    .then((res) => res.json())
+    .then((data) => data)
+    .catch((err) => new Error(err));
 
 // Function for formatting topics data from the database
 const renderTopic = (topic) => {
@@ -327,13 +317,14 @@ socket.on("server", (message) => {
 // Populates the page with topics upon refresh
 const init = () => {
   topicList.innerHTML = "";
-  getTopics().then((response) => {
-    if (response) {
-      response.forEach((item) => renderTopic(item));
-    } else {
-      return;
-    }
-  });
+  getTopics()
+    .then((response) => {
+      if (response.length !== undefined) {
+        response.forEach((item) => renderTopic(item));
+      } else {
+        console.log("Please log in to authenticate seession");
+      } 
+    });
 };
 
 init();
