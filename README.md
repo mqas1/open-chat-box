@@ -2,8 +2,7 @@
 
 ##  **Description**
 The "Open Chat Box" is a web application that connects people. 
-Chat with people from all around the world.
-It let's the users to create new topics and engage on existing ones.
+Create a user, login and chat with people from all around the world, in real time; Users can engage in existing topics, or create new ones.
 
 ## **Demonstration**
 Index page, with a login feature.
@@ -34,6 +33,7 @@ Main chat room page showing the topics and messages.
   * Socket.io
   * Bcrypt
   * Mysql2
+  *emojioneArea
 
 
 ## **Roadmap**
